@@ -1,0 +1,10 @@
+/home/jiawei/Desktop/onmcal/build/CMakeFiles/edit_cache.dir
+/home/jiawei/Desktop/onmcal/build/CMakeFiles/rebuild_cache.dir
+/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/rebuild_cache.dir
+/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/edit_cache.dir
+/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/jsonTranslator_run.dir
+/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/jsonTranslator.dir
+/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/edit_cache.dir
+/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/suitCal_run.dir
+/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/rebuild_cache.dir
+/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/suitCal.dir

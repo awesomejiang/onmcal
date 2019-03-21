@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jiawei/Desktop/onmcal/jsonTranslator/jsontranslator.cpp
+iostream
+-
+string
+-
+fstream
+-
+unordered_map
+-
+
