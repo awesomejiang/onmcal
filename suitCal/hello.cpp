@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 
 #include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/json.hpp>
@@ -17,6 +18,7 @@ int main(int, char**) {
     auto cursor = collection.find({});
 
     for (auto&& doc : cursor) {
+        cout << typeid(doc).name() << endl;
     	cout << bsoncxx::to_json(doc) << endl;
     	auto element = doc["御魂ID"];
     	if(element.type() != bsoncxx::type::k_utf8) {
