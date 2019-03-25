@@ -44,23 +44,23 @@ public:
 		minor_soul = soul;
 	}
 
-	void set_base(std::string attr_name, double _val){
+	void set_base(std::string attr_name, double val){
 		attrs[attr_name].set_base(val);
 	}
 
-	void set_range(std::string attr_name, double _min_val, double _max_val){
-		attrs[attr_name].set_range(_min_val, _max_val);
+	void set_range(std::string attr_name, double min_val, double max_val){
+		attrs[attr_name].set_range(min_val, max_val);
 	}
 
-	void set_product_range(std::string attr1, std::string attr2, double _min_val, double _max_val){
-		product_attrs[attr1+"*"+attr2].set_range(_min_val, _max_val);
+	void set_product_range(std::string attr1, std::string attr2, double min_val, double max_val){
+		product_attrs[attr1+"*"+attr2].set_range(min_val, max_val);
 	}
 
+	std::string name = "";
+	std::string major_soul = "", minor_soul = "";
 
 
 private:
-	std::string name = "";
-	std::string major_soul = "", minor_soul = "";
 	std::unordered_map<std::string, Attr> attrs;
 	std::unordered_map<std::string, Attr> product_attrs;
 

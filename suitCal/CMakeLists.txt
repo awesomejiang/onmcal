@@ -6,6 +6,7 @@ add_executable(suitCal ${suitCal_SRC})
 
 target_include_directories(suitCal
   PRIVATE ${LIBMONGOCXX_INCLUDE_DIRS}
+  include
 )
 
 target_link_libraries(suitCal

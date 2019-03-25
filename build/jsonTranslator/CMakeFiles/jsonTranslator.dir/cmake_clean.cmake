@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o"
+  "CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o"
   "jsonTranslator.pdb"
   "jsonTranslator"
 )

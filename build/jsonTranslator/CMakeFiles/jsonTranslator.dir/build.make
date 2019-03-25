@@ -57,38 +57,38 @@ include jsonTranslator/CMakeFiles/jsonTranslator.dir/progress.make
 # Include the compile flags for this target's objects.
 include jsonTranslator/CMakeFiles/jsonTranslator.dir/flags.make
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o: jsonTranslator/CMakeFiles/jsonTranslator.dir/flags.make
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o: ../jsonTranslator/jsontranslator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiawei/Desktop/onmcal/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o"
-	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o -c /home/jiawei/Desktop/onmcal/jsonTranslator/jsontranslator.cpp
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o: jsonTranslator/CMakeFiles/jsonTranslator.dir/flags.make
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o: ../jsonTranslator/jsonTranslator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiawei/Desktop/onmcal/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o"
+	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o -c /home/jiawei/Desktop/onmcal/jsonTranslator/jsonTranslator.cpp
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.i"
-	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiawei/Desktop/onmcal/jsonTranslator/jsontranslator.cpp > CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.i
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.i"
+	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiawei/Desktop/onmcal/jsonTranslator/jsonTranslator.cpp > CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.i
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.s"
-	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiawei/Desktop/onmcal/jsonTranslator/jsontranslator.cpp -o CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.s
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.s"
+	cd /home/jiawei/Desktop/onmcal/build/jsonTranslator && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiawei/Desktop/onmcal/jsonTranslator/jsonTranslator.cpp -o CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.s
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.requires:
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.requires:
 
-.PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.requires
+.PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.requires
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.provides: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.requires
-	$(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.provides.build
-.PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.provides
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.provides: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.requires
+	$(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.provides.build
+.PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.provides
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.provides.build: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o
+jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.provides.build: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o
 
 
 # Object files for target jsonTranslator
 jsonTranslator_OBJECTS = \
-"CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o"
+"CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o"
 
 # External object files for target jsonTranslator
 jsonTranslator_EXTERNAL_OBJECTS =
 
-jsonTranslator/jsonTranslator: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o
+jsonTranslator/jsonTranslator: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o
 jsonTranslator/jsonTranslator: jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make
 jsonTranslator/jsonTranslator: jsonTranslator/CMakeFiles/jsonTranslator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiawei/Desktop/onmcal/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable jsonTranslator"
@@ -99,7 +99,7 @@ jsonTranslator/CMakeFiles/jsonTranslator.dir/build: jsonTranslator/jsonTranslato
 
 .PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/build
 
-jsonTranslator/CMakeFiles/jsonTranslator.dir/requires: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o.requires
+jsonTranslator/CMakeFiles/jsonTranslator.dir/requires: jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o.requires
 
 .PHONY : jsonTranslator/CMakeFiles/jsonTranslator.dir/requires
 

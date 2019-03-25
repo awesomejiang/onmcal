@@ -1,0 +1,6 @@
+[ 50%] Built target jsonTranslator
+Scanning dependencies of target suitCal
+[ 75%] Building CXX object suitCal/CMakeFiles/suitCal.dir/hello.cpp.o
+suitCal/CMakeFiles/suitCal.dir/build.make:62: recipe for target 'suitCal/CMakeFiles/suitCal.dir/hello.cpp.o' failed
+CMakeFiles/Makefile2:206: recipe for target 'suitCal/CMakeFiles/suitCal.dir/all' failed
+Makefile:83: recipe for target 'all' failed

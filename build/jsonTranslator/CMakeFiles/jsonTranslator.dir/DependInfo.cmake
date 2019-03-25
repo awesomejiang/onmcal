@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jiawei/Desktop/onmcal/jsonTranslator/jsontranslator.cpp" "/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o"
+  "/home/jiawei/Desktop/onmcal/jsonTranslator/jsonTranslator.cpp" "/home/jiawei/Desktop/onmcal/build/jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

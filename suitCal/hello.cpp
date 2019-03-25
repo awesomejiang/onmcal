@@ -7,6 +7,9 @@
 #include <mongocxx/client.hpp>
 #include <mongocxx/instance.hpp>
 
+#include "constraints.h"
+#include "calculator.h"
+
 using namespace std;
 
 int main(int, char**) {
@@ -17,17 +20,21 @@ int main(int, char**) {
 
     auto cursor = collection.find({});
 
-    for (auto&& doc : cursor) {
-        cout << typeid(doc).name() << endl;
-    	cout << bsoncxx::to_json(doc) << endl;
-    	auto element = doc["御魂ID"];
-    	if(element.type() != bsoncxx::type::k_utf8) {
-		  // Error
-    		cout << "error" << endl;
-		} else {
-	    	cout << element.get_utf8().value.to_string() << endl;
-		}
+    Constraints con("my_cons");
+    Calculator cal("souls");
+    cal.compute(con);
+    
+  //   for (auto&& doc : cursor) {
+  //       cout << typeid(doc).name() << endl;
+  //   	cout << bsoncxx::to_json(doc) << endl;
+  //   	auto element = doc["御魂ID"];
+  //   	if(element.type() != bsoncxx::type::k_utf8) {
+		//   // Error
+  //   		cout << "error" << endl;
+		// } else {
+	 //    	cout << element.get_utf8().value.to_string() << endl;
+		// }
 
-    	cout << endl;
-    }
+  //   	cout << endl;
+  //   }
 }

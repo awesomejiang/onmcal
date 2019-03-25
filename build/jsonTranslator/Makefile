@@ -140,32 +140,32 @@ jsonTranslator/fast:
 	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/build
 .PHONY : jsonTranslator/fast
 
-jsontranslator.o: jsontranslator.cpp.o
+jsonTranslator.o: jsonTranslator.cpp.o
 
-.PHONY : jsontranslator.o
+.PHONY : jsonTranslator.o
 
 # target to build an object file
-jsontranslator.cpp.o:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.o
-.PHONY : jsontranslator.cpp.o
+jsonTranslator.cpp.o:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o
+.PHONY : jsonTranslator.cpp.o
 
-jsontranslator.i: jsontranslator.cpp.i
+jsonTranslator.i: jsonTranslator.cpp.i
 
-.PHONY : jsontranslator.i
+.PHONY : jsonTranslator.i
 
 # target to preprocess a source file
-jsontranslator.cpp.i:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.i
-.PHONY : jsontranslator.cpp.i
+jsonTranslator.cpp.i:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.i
+.PHONY : jsonTranslator.cpp.i
 
-jsontranslator.s: jsontranslator.cpp.s
+jsonTranslator.s: jsonTranslator.cpp.s
 
-.PHONY : jsontranslator.s
+.PHONY : jsonTranslator.s
 
 # target to generate assembly for a file
-jsontranslator.cpp.s:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsontranslator.cpp.s
-.PHONY : jsontranslator.cpp.s
+jsonTranslator.cpp.s:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f jsonTranslator/CMakeFiles/jsonTranslator.dir/build.make jsonTranslator/CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.s
+.PHONY : jsonTranslator.cpp.s
 
 # Help Target
 help:
@@ -177,9 +177,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... jsonTranslator_run"
 	@echo "... jsonTranslator"
-	@echo "... jsontranslator.o"
-	@echo "... jsontranslator.i"
-	@echo "... jsontranslator.s"
+	@echo "... jsonTranslator.o"
+	@echo "... jsonTranslator.i"
+	@echo "... jsonTranslator.s"
 .PHONY : help
 
 
