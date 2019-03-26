@@ -1,1 +1,1 @@
-/usr/bin/c++    -Wall -Wextra -Werror   CMakeFiles/suitCal.dir/hello.cpp.o  -o suitCal -rdynamic /usr/local/lib/libmongocxx.so /usr/local/lib/libbsoncxx.so -Wl,-rpath,/usr/local/lib 
+/usr/bin/c++    -Wall -Wextra -Werror   CMakeFiles/suitCal.dir/demo.cpp.o  -o suitCal -rdynamic /usr/local/lib/libmongocxx.so /usr/local/lib/libbsoncxx.so -Wl,-rpath,/usr/local/lib 

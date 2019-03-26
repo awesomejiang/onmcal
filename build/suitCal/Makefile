@@ -140,32 +140,32 @@ suitCal/fast:
 	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/build
 .PHONY : suitCal/fast
 
-hello.o: hello.cpp.o
+demo.o: demo.cpp.o
 
-.PHONY : hello.o
+.PHONY : demo.o
 
 # target to build an object file
-hello.cpp.o:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/hello.cpp.o
-.PHONY : hello.cpp.o
+demo.cpp.o:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/demo.cpp.o
+.PHONY : demo.cpp.o
 
-hello.i: hello.cpp.i
+demo.i: demo.cpp.i
 
-.PHONY : hello.i
+.PHONY : demo.i
 
 # target to preprocess a source file
-hello.cpp.i:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/hello.cpp.i
-.PHONY : hello.cpp.i
+demo.cpp.i:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/demo.cpp.i
+.PHONY : demo.cpp.i
 
-hello.s: hello.cpp.s
+demo.s: demo.cpp.s
 
-.PHONY : hello.s
+.PHONY : demo.s
 
 # target to generate assembly for a file
-hello.cpp.s:
-	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/hello.cpp.s
-.PHONY : hello.cpp.s
+demo.cpp.s:
+	cd /home/jiawei/Desktop/onmcal/build && $(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/demo.cpp.s
+.PHONY : demo.cpp.s
 
 # Help Target
 help:
@@ -177,9 +177,9 @@ help:
 	@echo "... suitCal_run"
 	@echo "... rebuild_cache"
 	@echo "... suitCal"
-	@echo "... hello.o"
-	@echo "... hello.i"
-	@echo "... hello.s"
+	@echo "... demo.o"
+	@echo "... demo.i"
+	@echo "... demo.s"
 .PHONY : help
 
 

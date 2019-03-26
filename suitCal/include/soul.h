@@ -18,18 +18,20 @@ class Soul {
 public:
 	Soul(bsoncxx::document::view doc){
 		for(auto elt: doc){
-			if(elt.key().compare("御魂ID")){
+			if(!elt.key().compare("_id")){
+				mongodb_id = elt.get_oid().value.to_string();
+			} else if(!elt.key().compare("御魂ID")){
 				id = elt.get_utf8().value.to_string();
-			} else if(elt.key().compare("御魂类型")){
+			} else if(!elt.key().compare("御魂类型")){
 				type = elt.get_utf8().value.to_string();
-			} else if(elt.key().compare("位置")){
-				position = elt.get_int64();
-			} else if(elt.key().compare("御魂等级")){
-				level = elt.get_int64();
-			} else if(elt.key().compare("御魂星级")){
-				star = elt.get_int64();
+			} else if(!elt.key().compare("位置")){
+				position = elt.get_int32().value;
+			} else if(!elt.key().compare("御魂等级")){
+				level = elt.get_int32();
+			} else if(!elt.key().compare("御魂星级")){
+				star = elt.get_int32();
 			} else{
-				attrs[elt.key()] = elt.get_double();
+				attrs[std::string(elt.key())] = elt.get_double();
 			}
 		}
 	}
@@ -38,15 +40,16 @@ public:
 		auto ret = 
 			"id: " + soul.id +
 			"\ntype: " + soul.type +
-			"\nposition: " + std::to_string(soul.postion)
-			"\nlevel: " + std::to_string(soul.level)
-			"\ntype: " + std::to_string(soul.type);
-		for(auto const &kv: attrs){
-			ret += "\n" + kv.first + "\t" + kv.second;
+			"\nposition: " + std::to_string(soul.position) +
+			"\nlevel: " + std::to_string(soul.level) +
+			"\nstar: " + std::to_string(soul.star);
+		for(auto const &kv: soul.attrs){
+			ret += "\n" + kv.first + "\t" + std::to_string(kv.second);
 		}
 		return out << ret << std::endl;
 	}
 
+	std::string mongodb_id;
 	std::string id;
 	std::string type;
 	int position;

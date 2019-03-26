@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
+../suitCal/include/attr.h
+
 ../suitCal/include/calculator.h
+vector
+-
+attr.h
+../suitCal/include/attr.h
 constraints.h
 ../suitCal/include/constraints.h
 cartProduct.h
@@ -29,6 +35,8 @@ unordered_map
 -
 vector
 -
+attr.h
+../suitCal/include/attr.h
 
 ../suitCal/include/soul.h
 iostream
@@ -48,7 +56,7 @@ mongocxx/client.hpp
 mongocxx/instance.hpp
 -
 
-/home/jiawei/Desktop/onmcal/suitCal/hello.cpp
+/home/jiawei/Desktop/onmcal/suitCal/demo.cpp
 iostream
 -
 typeinfo

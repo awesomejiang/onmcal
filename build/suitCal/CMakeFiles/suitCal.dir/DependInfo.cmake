@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jiawei/Desktop/onmcal/suitCal/hello.cpp" "/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/suitCal.dir/hello.cpp.o"
+  "/home/jiawei/Desktop/onmcal/suitCal/demo.cpp" "/home/jiawei/Desktop/onmcal/build/suitCal/CMakeFiles/suitCal.dir/demo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

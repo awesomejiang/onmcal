@@ -57,38 +57,38 @@ include suitCal/CMakeFiles/suitCal.dir/progress.make
 # Include the compile flags for this target's objects.
 include suitCal/CMakeFiles/suitCal.dir/flags.make
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.o: suitCal/CMakeFiles/suitCal.dir/flags.make
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.o: ../suitCal/hello.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiawei/Desktop/onmcal/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object suitCal/CMakeFiles/suitCal.dir/hello.cpp.o"
-	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/suitCal.dir/hello.cpp.o -c /home/jiawei/Desktop/onmcal/suitCal/hello.cpp
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.o: suitCal/CMakeFiles/suitCal.dir/flags.make
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.o: ../suitCal/demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiawei/Desktop/onmcal/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object suitCal/CMakeFiles/suitCal.dir/demo.cpp.o"
+	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/suitCal.dir/demo.cpp.o -c /home/jiawei/Desktop/onmcal/suitCal/demo.cpp
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/suitCal.dir/hello.cpp.i"
-	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiawei/Desktop/onmcal/suitCal/hello.cpp > CMakeFiles/suitCal.dir/hello.cpp.i
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/suitCal.dir/demo.cpp.i"
+	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiawei/Desktop/onmcal/suitCal/demo.cpp > CMakeFiles/suitCal.dir/demo.cpp.i
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/suitCal.dir/hello.cpp.s"
-	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiawei/Desktop/onmcal/suitCal/hello.cpp -o CMakeFiles/suitCal.dir/hello.cpp.s
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/suitCal.dir/demo.cpp.s"
+	cd /home/jiawei/Desktop/onmcal/build/suitCal && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiawei/Desktop/onmcal/suitCal/demo.cpp -o CMakeFiles/suitCal.dir/demo.cpp.s
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.requires:
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.requires:
 
-.PHONY : suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.requires
+.PHONY : suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.requires
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.provides: suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.requires
-	$(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.provides.build
-.PHONY : suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.provides
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.provides: suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.requires
+	$(MAKE) -f suitCal/CMakeFiles/suitCal.dir/build.make suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.provides.build
+.PHONY : suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.provides
 
-suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.provides.build: suitCal/CMakeFiles/suitCal.dir/hello.cpp.o
+suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.provides.build: suitCal/CMakeFiles/suitCal.dir/demo.cpp.o
 
 
 # Object files for target suitCal
 suitCal_OBJECTS = \
-"CMakeFiles/suitCal.dir/hello.cpp.o"
+"CMakeFiles/suitCal.dir/demo.cpp.o"
 
 # External object files for target suitCal
 suitCal_EXTERNAL_OBJECTS =
 
-suitCal/suitCal: suitCal/CMakeFiles/suitCal.dir/hello.cpp.o
+suitCal/suitCal: suitCal/CMakeFiles/suitCal.dir/demo.cpp.o
 suitCal/suitCal: suitCal/CMakeFiles/suitCal.dir/build.make
 suitCal/suitCal: /usr/local/lib/libmongocxx.so
 suitCal/suitCal: /usr/local/lib/libbsoncxx.so
@@ -101,7 +101,7 @@ suitCal/CMakeFiles/suitCal.dir/build: suitCal/suitCal
 
 .PHONY : suitCal/CMakeFiles/suitCal.dir/build
 
-suitCal/CMakeFiles/suitCal.dir/requires: suitCal/CMakeFiles/suitCal.dir/hello.cpp.o.requires
+suitCal/CMakeFiles/suitCal.dir/requires: suitCal/CMakeFiles/suitCal.dir/demo.cpp.o.requires
 
 .PHONY : suitCal/CMakeFiles/suitCal.dir/requires
 

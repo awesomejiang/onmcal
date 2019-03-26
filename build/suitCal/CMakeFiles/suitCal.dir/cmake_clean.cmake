@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/suitCal.dir/hello.cpp.o"
+  "CMakeFiles/suitCal.dir/demo.cpp.o"
   "suitCal.pdb"
   "suitCal"
 )

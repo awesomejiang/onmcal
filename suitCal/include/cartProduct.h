@@ -8,16 +8,18 @@
 
 class CartProduct{
 public:
-	CartProduct(std::vector<Soul> const &souls, Constraints const &constraints){
+	CartProduct(std::vector<Soul> const &souls, Constraints const &constraints)
+	: index(6, 0), soulpool(6) {
 		for(auto const &soul: souls){
 			if(soul.type == constraints.major_soul ||
 			   soul.type == constraints.minor_soul ||
 			   (constraints.major_soul == "" && constraints.major_soul == "")){
-				soulpool[soul.position-1] = soul;
+				soulpool[soul.position-1].push_back(soul);
 			}
 		}
 
 		for(auto const &sub_pool: soulpool){
+			// std::cout << sub_pool.size() << " at this positon" << std::endl;
 			max_size.push_back(sub_pool.size());
 		}
 	}
@@ -33,8 +35,8 @@ public:
 	}
 
 	//return empty if no next permutation
-	std::vector<Soul&> next(){
-		std::vector<Soul&> ret{};
+	std::vector<Soul> next(){
+		std::vector<Soul> ret{};
 		if(has_next()){
 			for(int pos=0; pos<6; ++pos){
 				if(index[pos] < max_size[pos]-1){
@@ -43,21 +45,22 @@ public:
 					break;
 				}
 			}
-
 			for(int pos=0; pos<6; ++pos){
 				ret.push_back(soulpool[pos][index[pos]]);
-				std::cout << index[pos] << "\t";
 			}
-			std::cout << std::endl;
 		}
 
 		return ret;
 	}
 
+	int get_total(){
+		return std::accumulate(max_size.begin(), max_size.end(), 1, [](int acc, int elt){return acc*elt;});
+	}
+
 private:
-	std::vector<int> index(6);
+	std::vector<int> index;
 	std::vector<int> max_size;
-	std::vector<Soul> soulpool;
+	std::vector<std::vector<Soul>> soulpool;
 };
 
 
