@@ -105,16 +105,11 @@ private:
 			for(auto const &attr: soul.attrs){
 				auto attr_name = attr.first;
 				auto attr_val = attr.second;
-				bool is_rate = attr_name.find("加成") != std::string::npos;
-				if(is_rate){
+				if(attr_name.find("加成") != std::string::npos){
 					attr_name = attr_name.substr(0, attr_name.find("加成"));
-				}
-				if(c.attrs.find(attr_name) != c.attrs.end()){
-					if(is_rate){
-						c.attrs[attr_name].add_rate(attr_val);
-					} else {
-						c.attrs[attr_name].add_val(attr_val);
-					}
+					c.attrs[attr_name].add_rate(attr_val);
+				} else {
+					c.attrs[attr_name].add_val(attr_val);
 				}
 			}
 

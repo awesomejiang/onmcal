@@ -49,12 +49,8 @@ public:
 		return out << ret << std::endl;
 	}
 
-	std::string mongodb_id;
-	std::string id;
-	std::string type;
-	int position;
-	int level;
-	int star;
+	std::string mongodb_id, id, type;
+	int position, level, star;
 	std::unordered_map<std::string, double> attrs;
 	std::vector<std::string> suits;
 };

@@ -1,1 +1,1 @@
-/usr/bin/c++    -Wall -Wextra -Werror   CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o  -o jsonTranslator -rdynamic 
+/usr/bin/c++    -Wall -Wextra -Werror -O3   CMakeFiles/jsonTranslator.dir/jsonTranslator.cpp.o  -o jsonTranslator -rdynamic 
