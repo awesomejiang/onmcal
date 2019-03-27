@@ -22,7 +22,7 @@ int main(int, char**) {
     //attr bases
     con.set_base("攻击", 3323);
     con.set_base("速度", 112);
-    con.set_base("暴击", 0.1);
+    con.set_base("暴击", 0.15);
     con.set_base("暴击伤害", 1.5);
 
     //attr limits
@@ -30,7 +30,7 @@ int main(int, char**) {
     con.set_limit("暴击", 1);
 
     //target product
-    con.set_product("攻击", "暴击伤害", 20000);
+    con.set_product("攻击", "暴击伤害", 20500);
 
     //validate con before compute
     con.validate();

@@ -58,11 +58,17 @@ int main(int argc, char **argv){
 		   line.find("yuhun_ocr") != string::npos){	//ignore this 3 lines
 			continue;
 		} else {
-			if(line.find("},") != string::npos){	//delete ',' after each json object
-				line = line.substr(0, line.size()-1);
+			auto found = line.find("},");
+			if(found != string::npos){	//delete ',' after each json object
+				line = line.substr(0, found+1) + "\n";
 			}
+			ofs << line;
 		}
 	}
 
 	return 0;
 }
+
+
+//to import json into mongodb
+//mongoimport -d db -c collection file

@@ -11,6 +11,14 @@
 ../suitCal/include/calculator.h
 vector
 -
+iostream
+-
+functional
+-
+iterator
+-
+algorithm
+-
 attr.h
 ../suitCal/include/attr.h
 constraints.h
@@ -22,6 +30,10 @@ soul.h
 
 ../suitCal/include/cartProduct.h
 vector
+-
+iterator
+-
+functional
 -
 constraints.h
 ../suitCal/include/constraints.h

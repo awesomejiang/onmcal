@@ -40,9 +40,9 @@ public:
 		auto ret = 
 			"id: " + soul.id +
 			"\ntype: " + soul.type +
-			"\nposition: " + std::to_string(soul.position) +
-			"\nlevel: " + std::to_string(soul.level) +
-			"\nstar: " + std::to_string(soul.star);
+			"\tposition: " + std::to_string(soul.position) +
+			"\tlevel: " + std::to_string(soul.level) +
+			"\tstar: " + std::to_string(soul.star);
 		for(auto const &kv: soul.attrs){
 			ret += "\n" + kv.first + "\t" + std::to_string(kv.second);
 		}

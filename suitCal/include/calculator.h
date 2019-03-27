@@ -2,6 +2,10 @@
 #define CALCULATOR_H
 
 #include <vector>
+#include <iostream>
+#include <functional>
+#include <iterator>
+#include <algorithm>
 
 #include "attr.h"
 #include "constraints.h"
@@ -17,41 +21,41 @@ public:
 	//start calculating!
 	void check_all(Constraints const &constraints){
 		CartProduct cp(souls, constraints);
+		cp.print_by_loc();
 		int total = cp.get_total();
 		int tenth = 1;
 		int cnt = 0;
+
 		while(cp.has_next()){
-			auto souls = cp.next();
-			if(check_one(constraints, souls)){
-				std::cout << "found one!" << std::endl;
-				for(auto const &soul: souls){
-					std::cout << soul << std::endl;
-				}
-				break;
-			}
+			auto next_comb = cp.next();
+			check_one(constraints, next_comb);
+
+			//print percent for each 10%
+			//if(total/1000 == cnt) break;
 			if(total/10 * tenth == ++cnt){
-				std::cout << "complete " << tenth*10 << " percent computing." << std::endl;
+				std::cout << "------ complete " << tenth*10 << " percent computing." << std::endl;
 				++tenth;
 			}
 		}
 
 		std::cout << "check all " << cnt << " possible combinations" << std::endl;
-		std::cout << "bad_combo: " << bad_combo << std::endl;
+		std::cout << "bad_combo: " << bad_comb << std::endl;
 		std::cout << "bad_attr: " << bad_attr << std::endl;
 		std::cout << "bad_product: " << bad_product << std::endl;
+		std::cout << "good_result: " << cnt-bad_comb-bad_attr-bad_product << std::endl;
 	}
 
 private:
 	std::vector<Soul> souls;
-	int bad_combo = 0;
+	int bad_comb = 0;
 	int bad_attr = 0;
 	int bad_product = 0;
 
-	bool check_one(Constraints c, std::vector<Soul> const &souls){
+	bool check_one(Constraints c, std::vector<std::reference_wrapper<Soul>> const &comb){
 
 		//check suit
-		if(!update_attrs(c, souls)){
-			++bad_combo; 
+		if(!update_attrs(c, comb)){
+			++bad_comb; 
 			return false;
 		}
 
@@ -69,22 +73,34 @@ private:
 		//check product range
 		for(auto p: c.products){
 			double p_val = c.attrs[p.attr1].get_val() * c.attrs[p.attr2].get_val();
-if(p_val > 19000) std::cout << "target product is " << p_val << std::endl;
+
 			if(p_val < p.mm.min_val || p_val > p.mm.max_val){
 				++bad_product;
 				return false;
 			}
 		}
 
+		//print result
+		std::cout << "***************************************************************" << std::endl;
+		std::cout << "found one possible combo!" << std::endl;
+		for(auto p: c.products){
+			double p_val = c.attrs[p.attr1].get_val() * c.attrs[p.attr2].get_val();
+			std::cout << p.attr1 << " * " << p.attr2 << ": " << p_val << std::endl;
+		}
+		std::copy(comb.begin(), comb.end(), std::ostream_iterator<Soul>(std::cout, "\n"));
+		std::cout << "***************************************************************" << std::endl;
+
 		return true;
 	}
 
 	//update attrs in constraints and check completeness of soul suit 
-	bool update_attrs(Constraints &c, std::vector<Soul> const &souls){
+	bool update_attrs(Constraints &c, std::vector<std::reference_wrapper<Soul>> const &comb){
 		int major = c.major_soul==""? 0: 4;
 		int minor = c.minor_soul==""? 0: 2;
 
-		for(auto const &soul: souls){
+		for(auto const &soul_ref: comb){
+			auto const &soul = soul_ref.get();
+
 			//compute all attrs
 			for(auto const &attr: soul.attrs){
 				auto attr_name = attr.first;

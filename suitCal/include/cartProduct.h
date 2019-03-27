@@ -2,6 +2,8 @@
 #define CARTPRODUCT_H
 
 #include <vector>
+#include <iterator>
+#include <functional>
 
 #include "constraints.h"
 #include "soul.h"
@@ -25,28 +27,23 @@ public:
 	}
 
 	bool has_next() const{
-		for(int pos=0; pos<6; ++pos){
-			if(index[pos] < max_size[pos]-1){
-				return true;
-			}
-		}
-
-		return false;
+		return index[5] < max_size[5];
 	}
 
 	//return empty if no next permutation
-	std::vector<Soul> next(){
-		std::vector<Soul> ret{};
+	std::vector<std::reference_wrapper<Soul>> next(){
+		std::vector<std::reference_wrapper<Soul>> ret{};
 		if(has_next()){
-			for(int pos=0; pos<6; ++pos){
-				if(index[pos] < max_size[pos]-1){
-					++index[pos];
-					fill(index.begin(), index.begin()+pos, 0);
-					break;
-				}
-			}
+			//construct one product
 			for(int pos=0; pos<6; ++pos){
 				ret.push_back(soulpool[pos][index[pos]]);
+			}
+
+			//then move backward for one
+
+			int pos = 0;
+			while(++index[pos] == max_size[pos] && pos < 5){
+				index[pos++] = 0;
 			}
 		}
 
@@ -55,6 +52,12 @@ public:
 
 	int get_total(){
 		return std::accumulate(max_size.begin(), max_size.end(), 1, [](int acc, int elt){return acc*elt;});
+	}
+
+	void print_by_loc(){
+		std::cout << "souls by loc: ";
+		std::copy(max_size.begin(), max_size.end(), std::ostream_iterator<int>(std::cout, "\t"));
+		std::cout << std::endl;
 	}
 
 private:
