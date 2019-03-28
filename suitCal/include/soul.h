@@ -16,7 +16,7 @@
 
 class Soul {
 public:
-	Soul(bsoncxx::document::view doc){
+	Soul(bsoncxx::document::view const &doc){
 		for(auto elt: doc){
 			if(!elt.key().compare("_id")){
 				mongodb_id = elt.get_oid().value.to_string();
@@ -36,6 +36,18 @@ public:
 		}
 	}
 
+	std::unordered_map<std::string, double> const &get_attrs() const{
+		return attrs;
+	}
+
+	std::string const &get_type() const {
+		return type;
+	}
+
+	int const &get_position() const {
+		return position;
+	}
+
 	friend std::ostream &operator<<(std::ostream &out, Soul const &soul){
 		auto ret = 
 			"id: " + soul.id +
@@ -49,6 +61,7 @@ public:
 		return out << ret << std::endl;
 	}
 
+private:
 	std::string mongodb_id, id, type;
 	int position, level, star;
 	std::unordered_map<std::string, double> attrs;
@@ -56,7 +69,7 @@ public:
 };
 
 
-std::vector<Soul> soul_loader(std::string username){
+std::vector<Soul> soul_loader(std::string const &username){
     mongocxx::instance inst{};
     mongocxx::client conn{mongocxx::uri{}};
 

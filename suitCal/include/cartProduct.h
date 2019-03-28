@@ -10,13 +10,15 @@
 
 class CartProduct{
 public:
-	CartProduct(std::vector<Soul> const &souls, Constraints const &constraints)
+	CartProduct(std::vector<Soul> const &souls, Constraints const &c)
 	: index(6, 0), soulpool(6) {
+		auto const &major_type = c.get_major_type();
+		auto const &minor_type = c.get_minor_type();
 		for(auto const &soul: souls){
-			if(soul.type == constraints.major_soul ||
-			   soul.type == constraints.minor_soul ||
-			   (constraints.major_soul == "" && constraints.major_soul == "")){
-				soulpool[soul.position-1].push_back(soul);
+			if(soul.get_type() == major_type ||
+			   soul.get_type() == minor_type ||
+			   (major_type == "" && major_type == "")){
+				soulpool[soul.get_position()-1].push_back(soul);
 			}
 		}
 
@@ -50,11 +52,11 @@ public:
 		return ret;
 	}
 
-	int get_total(){
+	int total_products() const{
 		return std::accumulate(max_size.begin(), max_size.end(), 1, [](int acc, int elt){return acc*elt;});
 	}
 
-	void print_by_loc(){
+	void print_by_loc() const{
 		std::cout << "souls by loc: ";
 		std::copy(max_size.begin(), max_size.end(), std::ostream_iterator<int>(std::cout, "\t"));
 		std::cout << std::endl;

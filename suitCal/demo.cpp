@@ -16,8 +16,8 @@ int main(int, char**) {
     Constraints con("my_cons");
 
     //soul type
-    con.set_major_soul("破势");
-    con.set_minor_soul("荒骷髅");
+    con.set_major_type("破势");
+    con.set_minor_type("荒骷髅");
 
     //attr bases
     con.set_base("攻击", 3323);
@@ -33,7 +33,7 @@ int main(int, char**) {
     con.set_product("攻击", "暴击伤害", 20500);
 
     //validate con before compute
-    con.validate();
+    //con.validate();
 
     //begin computing
     Calculator cal("souls");

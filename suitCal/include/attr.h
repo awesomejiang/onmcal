@@ -9,28 +9,39 @@ struct MinMax{
 
 class Attr {
 public:
-	void set_base(double _val){
+	void set_base(double const &_val){
 		base = _val;
 	}
-	void set_limit(double _min_val, double _max_val){
+	void set_limit(double const &_min_val, double _max_val){
 		mm = {_min_val, _max_val};
 	}
 
-	void add_val(double _val){
+	void add_val(double const &_val){
 		addon_val += _val;
 	}
 
-	void add_rate(double _rate){
+	void add_rate(double const &_rate){
 		addon_rate += _rate;
 	}
 
-	double get_val() const{
+	double current_val() const {
 		return base*(1.0+addon_rate) + addon_val;
 	}
 
+	MinMax const &get_minmax() const {
+		return mm;
+	}
+
+private:
 	double base = 0.0;
 	double addon_rate = 0;
 	double addon_val = 0;
+	MinMax mm;
+};
+
+
+struct Product{
+	std::string attr1, attr2;
 	MinMax mm;
 };
 
