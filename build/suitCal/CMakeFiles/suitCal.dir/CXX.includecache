@@ -7,6 +7,12 @@
 #IncludeRegexTransform: 
 
 ../suitCal/include/attr.h
+type_traits
+-
+string
+-
+unordered_map
+-
 
 ../suitCal/include/calculator.h
 vector
@@ -43,8 +49,6 @@ soul.h
 ../suitCal/include/constraints.h
 string
 -
-unordered_map
--
 vector
 -
 attr.h
@@ -54,8 +58,6 @@ attr.h
 iostream
 -
 string
--
-unordered_map
 -
 vector
 -
@@ -67,6 +69,8 @@ mongocxx/client.hpp
 -
 mongocxx/instance.hpp
 -
+attr.h
+../suitCal/include/attr.h
 
 /home/jiawei/Desktop/onmcal/suitCal/demo.cpp
 iostream

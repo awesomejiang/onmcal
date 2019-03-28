@@ -17,7 +17,7 @@ public:
 		for(auto const &soul: souls){
 			if(soul.get_type() == major_type ||
 			   soul.get_type() == minor_type ||
-			   (major_type == "" && major_type == "")){
+			   major_type == "" || minor_type == ""){
 				soulpool[soul.get_position()-1].push_back(soul);
 			}
 		}
@@ -52,8 +52,8 @@ public:
 		return ret;
 	}
 
-	int total_products() const{
-		return std::accumulate(max_size.begin(), max_size.end(), 1, [](int acc, int elt){return acc*elt;});
+	long total_products() const{
+		return std::accumulate(max_size.begin(), max_size.end(), 1l, [](long acc, long elt){return acc*elt;});
 	}
 
 	void print_by_loc() const{

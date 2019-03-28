@@ -28,9 +28,11 @@ public:
 		bad_comb = 0;
 		bad_attr = 0;
 		bad_product = 0;
-		int total = cp.total_products();
-		int tenth = 1;
-		int cnt = 0;
+		long total = cp.total_products();
+		if(total > 1e10){
+			std::cout << "warning: too much possible combinations. This computation is skipped." << std::endl;
+			return ;
+		}
 
 		//if suit type is fixed, we set the combo attr here
 		//or we have to do it in every check_one() call
@@ -38,12 +40,13 @@ public:
 		c.add_suit_attr(c.get_minor_type());
 		is_soul_type_fixed = (c.get_major_type() != "" && c.get_minor_type() != "");
 
+		long cnt = 0;
+		int tenth = 1;
 		while(cp.has_next()){
 			auto next_comb = cp.next();
 			check_one(c, next_comb);
 
 			//print percent for each 10%
-			//if(total/1000 == cnt) break;
 			if(total/10 * tenth == ++cnt){
 				std::cout << "------ complete " << tenth*10 << " percent computing." << std::endl;
 				++tenth;
@@ -60,10 +63,10 @@ public:
 
 private:
 	std::vector<Soul> souls;
-	bool is_soul_type_fixed;
-	int bad_comb = 0;
-	int bad_attr = 0;
-	int bad_product = 0;
+	bool is_soul_type_fixed = false;
+	long bad_comb = 0;
+	long bad_attr = 0;
+	long bad_product = 0;
 
 	bool check_one(Constraints c, std::vector<std::reference_wrapper<Soul>> const &comb){
 
@@ -95,10 +98,10 @@ private:
 
 		//print result
 		std::cout << "***************************************************************" << std::endl;
-		std::cout << "found one possible combo!" << std::endl;
+		std::cout << "found one possible combination!" << std::endl;
 		for(auto p: c.get_products()){
 			double p_val = c.get_attr_val(p.attr1) * c.get_attr_val(p.attr2);
-			std::cout << p.attr1 << " * " << p.attr2 << ": " << p_val << std::endl;
+			std::cout << Attr::enum_to_str(p.attr1) << " * " << Attr::enum_to_str(p.attr2) << ": " << p_val << std::endl;
 		}
 		std::copy(comb.begin(), comb.end(), std::ostream_iterator<Soul>(std::cout, "\n"));
 		std::cout << "***************************************************************" << std::endl;
@@ -127,14 +130,14 @@ private:
 			auto const &soul = soul_ref.get();
 
 			//compute all attrs
-			for(auto const &attr: soul.get_attrs()){
-				auto attr_name = attr.first;
-				auto val = attr.second;
-				if(attr_name.find("加成") != std::string::npos){
-					attr_name = attr_name.substr(0, attr_name.find("加成"));
-					c.add_attr_rate(attr_name, val);
+			auto const &soul_attrs = soul.get_attrs();
+			for(unsigned int idx = 0; idx<soul_attrs.size(); ++idx){
+				if(idx == static_cast<int>(AttrEnum::defense_rate) ||
+				   idx == static_cast<int>(AttrEnum::health_rate) ||
+				   idx == static_cast<int>(AttrEnum::attack_rate)){
+					c.add_attr_rate(static_cast<AttrEnum>(idx-1), soul_attrs[idx]);
 				} else {
-					c.add_attr_val(attr_name, val);
+					c.add_attr_val(static_cast<AttrEnum>(idx), soul_attrs[idx]);
 				}
 			}
 		}
@@ -166,8 +169,7 @@ private:
 	}
 
 	bool check_attrs(Constraints const &c){
-		for(auto const &kv: c.get_attrs()){
-			auto const &attr = kv.second;
+		for(auto const &attr: c.get_attrs()){
 			auto attr_val = attr.current_val();
 
 			if(attr_val < attr.get_minmax().min_val || attr_val > attr.get_minmax().max_val){

@@ -2,7 +2,6 @@
 #define CONSTRAINTS_H
 
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 #include "attr.h"
@@ -10,7 +9,7 @@
 
 class Constraints {
 public:
-	Constraints(std::string const &name = ""): name{name} {}
+	Constraints(std::string const &name = ""): name{name}, attrs(static_cast<int>(AttrEnum::count)) {}
 
 	//set parameters
 	void set_major_type(std::string const &type){
@@ -22,40 +21,42 @@ public:
 	}
 
 	void set_base(std::string const &attr_name, double const &val){
-		attrs[attr_name].set_base(val);
+		auto ae = Attr::str_to_enum(attr_name);
+		attrs[static_cast<int>(ae)].set_base(val);
 	}
 
 	void set_limit(std::string const &attr_name, double const &min_val = 0.0, double const &max_val = 1e6){
-		attrs[attr_name].set_limit(min_val, max_val);
+		auto ae = Attr::str_to_enum(attr_name);
+		attrs[static_cast<int>(ae)].set_limit(min_val, max_val);
 	}
 
 	void set_product(std::string const &attr1, std::string const &attr2, double const &min_val = 0.0, double const &max_val = 1e10){
-		products.push_back({attr1, attr2, {min_val, max_val}});
+		products.push_back({Attr::str_to_enum(attr1), Attr::str_to_enum(attr2), {min_val, max_val}});
 	}
 
-	//add to final combo parameters
+	//add to final comb parameters
 	void add_suit_attr(std::string const &type){
 		if(is_in_list(type, {"蚌精", "火灵"})){
-			attrs["效果命中"].add_val(0.15);
+			attrs[static_cast<int>(AttrEnum::accuracy)].add_val(0.15);
 		} else if(is_in_list(type, {"幽谷响", "魍魉之匣", "骰子鬼", "反魂香"})) {
-			attrs["效果抵抗"].add_val(0.15);
+			attrs[static_cast<int>(AttrEnum::resistance)].add_val(0.15);
 		} else if(is_in_list(type, {"三味", "针女", "网切", "伤魂鸟", "破势", "镇墓兽"})) {
-			attrs["暴击"].add_val(0.15);
+			attrs[static_cast<int>(AttrEnum::critical_rate)].add_val(0.15);
 		} else if(is_in_list(type, {"蝠翼", "狂骨", "狰", "鸣屋", "轮入道", "心眼", "阴摩罗"})) {
-			attrs["攻击"].add_rate(0.15);
+			attrs[static_cast<int>(AttrEnum::attack)].add_rate(0.15);
 		} else if(is_in_list(type, {"雪幽魂", "魅妖", "珍珠", "招财猫", "反枕", "日女", "木魅"})) {
-			attrs["防御"].add_rate(0.15);
+			attrs[static_cast<int>(AttrEnum::defense)].add_rate(0.15);
 		} else if(is_in_list(type, {"涅槃之火", "地藏像", "镜姬", "钟灵", "被服", "树妖", "薙魂"})) {
-			attrs["生命"].add_rate(0.15);
+			attrs[static_cast<int>(AttrEnum::health)].add_rate(0.15);
 		}
 	}
 
-	void add_attr_rate(std::string const &attr_name, double const &val){
-		attrs[attr_name].add_rate(val);
+	void add_attr_rate(AttrEnum const &attr_enum, double const &val){
+		attrs[static_cast<int>(attr_enum)].add_rate(val);
 	}
 
-	void add_attr_val(std::string const &attr_name, double const &val){
-		attrs[attr_name].add_val(val);
+	void add_attr_val(AttrEnum const &attr_enum, double const &val){
+		attrs[static_cast<int>(attr_enum)].add_val(val);
 	}
 
 	//get private members
@@ -67,7 +68,7 @@ public:
 		return minor_type;
 	}
 
-	std::unordered_map<std::string, Attr> const &get_attrs() const {
+	std::vector<Attr> const &get_attrs() const {
 		return attrs;
 	}
 
@@ -75,15 +76,14 @@ public:
 		return products;
 	}
 
-	double get_attr_val(std::string const &attr_name) const {
-		return attrs.at(attr_name).current_val();
+	double get_attr_val(AttrEnum const &attr_enum) const {
+		return attrs.at(static_cast<int>(attr_enum)).current_val();
 	}
 
 private:
 	std::string name = "";
 	std::string major_type = "", minor_type = "";
-	//attr_name could be : "攻击" "生命" "防御" "速度" "效果命中" "效果抵抗" "暴击" "暴击伤害" 
-	std::unordered_map<std::string, Attr> attrs;
+	std::vector<Attr> attrs;
 	std::vector<Product> products;
 
 	bool is_in_list(std::string const &str, std::vector<std::string> const &list){
