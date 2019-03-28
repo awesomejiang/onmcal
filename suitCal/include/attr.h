@@ -6,17 +6,17 @@
 #include <unordered_map>
 
 enum class AttrEnum: int {
-	speed,
-	defense,
-	defense_rate,
-	health,
-	health_rate,
-	attack,
-	attack_rate,
-	critical_rate,
-	critical_damage,
 	resistance,
 	accuracy,
+	critical_rate,
+	defense,
+	health,
+	attack,
+	defense_rate, //for def/hlt/att, x + 3 = x_rate
+	health_rate,
+	attack_rate,
+	speed,
+	critical_damage,
 	count
 };
 
@@ -33,6 +33,7 @@ public:
 	void set_base(double const &_val){
 		base = _val;
 	}
+
 	void set_limit(double const &_min_val, double _max_val){
 		mm = {_min_val, _max_val};
 	}

@@ -29,10 +29,10 @@ public:
 		bad_attr = 0;
 		bad_product = 0;
 		long total = cp.total_products();
-		if(total > 1e10){
-			std::cout << "warning: too much possible combinations. This computation is skipped." << std::endl;
-			return ;
-		}
+		// if(total > 1e11){
+		// 	std::cout << "warning: too much possible combinations. This computation is skipped." << std::endl;
+		// 	return ;
+		// }
 
 		//if suit type is fixed, we set the combo attr here
 		//or we have to do it in every check_one() call
@@ -135,7 +135,7 @@ private:
 				if(idx == static_cast<int>(AttrEnum::defense_rate) ||
 				   idx == static_cast<int>(AttrEnum::health_rate) ||
 				   idx == static_cast<int>(AttrEnum::attack_rate)){
-					c.add_attr_rate(static_cast<AttrEnum>(idx-1), soul_attrs[idx]);
+					c.add_attr_rate(static_cast<AttrEnum>(idx-3), soul_attrs[idx]);
 				} else {
 					c.add_attr_val(static_cast<AttrEnum>(idx), soul_attrs[idx]);
 				}

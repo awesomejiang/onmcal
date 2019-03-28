@@ -9,7 +9,14 @@
 
 class Constraints {
 public:
-	Constraints(std::string const &name = ""): name{name}, attrs(static_cast<int>(AttrEnum::count)) {}
+	Constraints(std::string const &name = "")
+	: name{name},
+	  type_range{"阴摩罗", "心眼", "鸣屋", "狰", "轮入道", "蝠翼", "狂骨", "镇墓兽", "破势",
+		"网切", "三味", "针女", "树妖", "薙魂", "钟灵", "镜姬", "被服", "涅槃之火",
+		"地藏像", "木魅", "日女巳时", "反枕", "招财猫", "雪幽魂", "魅妖", "珍珠",
+		"火灵", "蚌精", "魍魉之匣", "幽谷响", "反魂香", "骰子鬼", "蜃气楼", "地震鲶",
+		"荒骷髅", "胧车", "土蜘蛛"},
+	  main_attrs(3), attrs(static_cast<int>(AttrEnum::count)) {}
 
 	//set parameters
 	void set_major_type(std::string const &type){
@@ -18,6 +25,17 @@ public:
 
 	void set_minor_type(std::string const &type){
 		minor_type = type;
+	}
+
+		//if we do not call this at driver, type_range would be all souls by default
+	void set_type_range(std::vector<std::string> const &types){
+		type_range.assign(types.begin(), types.end());
+	}
+
+	void set_main_attrs(int const &pos, std::vector<std::pair<std::string, double>> const &candidate_attrs){
+		for(auto const &ca: candidate_attrs){
+			main_attrs[pos/2-1].emplace_back(Attr::str_to_enum(ca.first), ca.second);
+		}
 	}
 
 	void set_base(std::string const &attr_name, double const &val){
@@ -36,18 +54,16 @@ public:
 
 	//add to final comb parameters
 	void add_suit_attr(std::string const &type){
-		if(is_in_list(type, {"蚌精", "火灵"})){
-			attrs[static_cast<int>(AttrEnum::accuracy)].add_val(0.15);
-		} else if(is_in_list(type, {"幽谷响", "魍魉之匣", "骰子鬼", "反魂香"})) {
-			attrs[static_cast<int>(AttrEnum::resistance)].add_val(0.15);
-		} else if(is_in_list(type, {"三味", "针女", "网切", "伤魂鸟", "破势", "镇墓兽"})) {
-			attrs[static_cast<int>(AttrEnum::critical_rate)].add_val(0.15);
-		} else if(is_in_list(type, {"蝠翼", "狂骨", "狰", "鸣屋", "轮入道", "心眼", "阴摩罗"})) {
-			attrs[static_cast<int>(AttrEnum::attack)].add_rate(0.15);
-		} else if(is_in_list(type, {"雪幽魂", "魅妖", "珍珠", "招财猫", "反枕", "日女", "木魅"})) {
-			attrs[static_cast<int>(AttrEnum::defense)].add_rate(0.15);
-		} else if(is_in_list(type, {"涅槃之火", "地藏像", "镜姬", "钟灵", "被服", "树妖", "薙魂"})) {
-			attrs[static_cast<int>(AttrEnum::health)].add_rate(0.15);
+		for(int idx = 0; idx<6; ++idx){
+			auto const &sub_types = soul_types[idx];
+			if(std::find(sub_types.begin(), sub_types.end(), type) != sub_types.end()){	//found
+				if(idx<3){	//idx= 0, 1, 2 -> AttrEnum::resistance, accuracy, cr_rate. Should add_val()
+					attrs[idx].add_val(0.15);
+				} else {	//def, hlt, att. Should add_rate()
+					attrs[idx].add_rate(0.15);
+				}
+				break;
+			}
 		}
 	}
 
@@ -68,6 +84,14 @@ public:
 		return minor_type;
 	}
 
+	std::vector<std::string> const &get_type_range() const {
+		return type_range;
+	}
+
+	std::vector<std::pair<AttrEnum, double>> const &get_main_attrs(int const &pos) const{
+		return main_attrs.at(pos/2-1);
+	}
+
 	std::vector<Attr> const &get_attrs() const {
 		return attrs;
 	}
@@ -83,6 +107,8 @@ public:
 private:
 	std::string name = "";
 	std::string major_type = "", minor_type = "";
+	std::vector<std::string> type_range;
+	std::vector<std::vector<std::pair<AttrEnum, double>>> main_attrs;
 	std::vector<Attr> attrs;
 	std::vector<Product> products;
 
@@ -95,6 +121,18 @@ private:
 
 		return false;
 	}
+
+	//type order is based on enum order:
+	//resistance, accuracy, critical_rate, defense, health, attack
+	std::vector<std::vector<std::string>> soul_types{
+		{"幽谷响", "魍魉之匣", "骰子鬼", "反魂香"},
+		{"蚌精", "火灵"},
+		{"三味", "针女", "网切", "伤魂鸟", "破势", "镇墓兽"},
+		{"雪幽魂", "魅妖", "珍珠", "招财猫", "反枕", "日女", "木魅"},
+		{"涅槃之火", "地藏像", "镜姬", "钟灵", "被服", "树妖", "薙魂"},
+		{"蝠翼", "狂骨", "狰", "鸣屋", "轮入道", "心眼", "阴摩罗"}
+	};
 };
+
 
 #endif
